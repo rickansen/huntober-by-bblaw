@@ -14,4 +14,4 @@ console.log(
   )
 );
 
-// Word for the day: SPACE
+// Word for the day: Space

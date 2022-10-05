@@ -1,5 +1,5 @@
 function decodeStringFour(str) {
-  return str.replaceAll(/[Space]/g, ' ');
+  return [...str].reverse().join('');
 }
 
 console.log(
@@ -8,7 +8,5 @@ console.log(
   ),
   " .dne eht ta ecapsetihw eht hctam t'nseod gnirts siht fo gninnigeb eht ta ecaps etihw ehT   "
 );
-
-// day 2 - Key: Space
 
 // string to decrypt - "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"

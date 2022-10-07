@@ -41,11 +41,17 @@ function decodeStringFour(str) {
   return [...str].reverse().join('');
 }
 
+function decodeStringSix(str) {
+  const key = 3;
+  return [...str].filter((x, y) => (y + 1) % key !== 0).join('');
+}
+
 function compiledDecodeFuncs(str) {
   const day1 = decodeString(str);
   const day3 = decodeStringThree(day1);
   const day4 = decodeStringFour(day3);
-  return day4;
+  const day6 = decodeStringSix(day4);
+  return day6;
 }
 
 console.log(

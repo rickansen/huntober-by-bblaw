@@ -33,13 +33,9 @@ function decodeStringTwo(str) {
     .join('');
 }
 
-function decodeStringThree(str) {
-  return str.replaceAll(/[Space]/g, ' ');
-}
+const decodeStringThree = (str) => str.replaceAll(/[Space]/g, ' ');
 
-function decodeStringFour(str) {
-  return [...str].reverse().join('');
-}
+const decodeStringFour = (str) => [...str].reverse().join('');
 
 function decodeStringSix(str) {
   const key = 3;

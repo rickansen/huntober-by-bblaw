@@ -46,12 +46,25 @@ function decodeStringSix(str) {
   return [...str].filter((x, y) => (y + 1) % key !== 0).join('');
 }
 
+const decodeStringSeven = (str) =>
+  [...str]
+    .map((x) => (/[a-z]/i.test(x) ? x.charCodeAt() : x))
+    .map((x) =>
+      typeof x === 'number'
+        ? x < 97
+          ? String.fromCharCode(26 - (x - 65) + 96)
+          : String.fromCharCode(26 - (x - 97) + 64)
+        : x
+    )
+    .join('');
+
 function compiledDecodeFuncs(str) {
   const day1 = decodeString(str);
   const day3 = decodeStringThree(day1);
   const day4 = decodeStringFour(day3);
   const day6 = decodeStringSix(day4);
-  return day6;
+  const day7 = decodeStringSeven(day6);
+  return day7;
 }
 
 console.log(
@@ -60,6 +73,5 @@ console.log(
   )
 );
 
-// string to decrypt - "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
-
 // huntober 1 week down. 100devs we go get
+// I KNET IT!!!

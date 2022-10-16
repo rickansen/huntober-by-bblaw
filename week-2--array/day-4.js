@@ -1,31 +1,31 @@
-function moveUp(grid, key) {
-  let yAxis = grid.map((x) => x.some((a) => a === key)).indexOf(true);
-  let xAxis = grid[yAxis].indexOf(key);
-  if (yAxis - 1 < 0) return grid;
-  const temp = grid[yAxis - 1][xAxis];
-  grid = grid.map((x, y) =>
+function moveBlankUp(curGrid, blankGrid) {
+  let yAxis = curGrid.map((x) => x.some((a) => a === blankGrid)).indexOf(true);
+  let xAxis = curGrid[yAxis].indexOf(blankGrid);
+  if (yAxis - 1 < 0) return curGrid;
+  const temp = curGrid[yAxis - 1][xAxis];
+  curGrid = curGrid.map((x, y) =>
     y === yAxis - 1
-      ? x.map((a, b) => (b === xAxis ? key : a))
+      ? x.map((a, b) => (b === xAxis ? blankGrid : a))
       : y === yAxis
       ? x.map((a, b) => (b === xAxis ? temp : a))
       : x
   );
 
-  return grid;
+  return curGrid;
 }
 
-function moveDown(grid, key) {
-  let yAxis = grid.map((x) => x.some((a) => a === key)).indexOf(true);
-  let xAxis = grid[yAxis].indexOf(key);
-  if (yAxis + 1 >= grid.length) return grid;
-  const temp = grid[yAxis + 1][xAxis];
-  grid = grid.map((x, y) =>
+function moveDown(curGrid, blankGrid) {
+  let yAxis = curGrid.map((x) => x.some((a) => a === blankGrid)).indexOf(true);
+  let xAxis = curGrid[yAxis].indexOf(blankGrid);
+  if (yAxis + 1 >= curGrid.length) return curGrid;
+  const temp = curGrid[yAxis + 1][xAxis];
+  curGrid = curGrid.map((x, y) =>
     y === yAxis + 1
-      ? x.map((a, b) => (b === xAxis ? key : a))
+      ? x.map((a, b) => (b === xAxis ? blankGrid : a))
       : y === yAxis
       ? x.map((a, b) => (b === xAxis ? temp : a))
       : x
   );
 
-  return grid;
+  return curGrid;
 }
